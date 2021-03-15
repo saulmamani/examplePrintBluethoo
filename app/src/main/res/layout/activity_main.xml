@@ -16,7 +16,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgLogo"
-        app:layout_constraintVertical_bias="0.188" />
+        app:layout_constraintVertical_bias="0.067" />
 
     <Button
         android:id="@+id/btnConectar"
@@ -34,7 +34,7 @@
         android:id="@+id/btnImprimir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="8dp"
         android:onClick="imprimir"
         android:text="Imprimir texto"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,32 +45,45 @@
         android:id="@+id/btnImprimirImagen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Imprimir logo"
+        android:layout_marginTop="8dp"
+        android:text="Imprimir con zebra"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.525"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnImprimir" />
+
+    <Button
+        android:id="@+id/btnImprimirEjemplo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Imprimir ejemplo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.525"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnImprimirImagen" />
 
     <Button
         android:id="@+id/btnLimpiar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="36dp"
         android:onClick="limpiar"
         android:text="Limpiar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnImprimirImagen" />
+        app:layout_constraintTop_toBottomOf="@+id/btnImprimirEjemplo" />
 
     <ImageView
         android:id="@+id/imgLogo"
-        android:layout_width="60dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="68dp"
+        android:layout_width="82dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="36dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLimpiar"
-        app:srcCompat="@drawable/logo"/>
+        app:srcCompat="@drawable/logo_200w" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
