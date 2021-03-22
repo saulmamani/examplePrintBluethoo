@@ -22,12 +22,11 @@
         android:id="@+id/btnImprimirz902"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="16dp"
         android:text="Imprimir z902"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/txtConsumo" />
 
     <Button
         android:id="@+id/btnImprimirz900"
@@ -49,5 +48,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnImprimirz900"
         app:srcCompat="@drawable/yakusela" />
+
+    <EditText
+        android:id="@+id/txtConsumo"
+        android:layout_width="144dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="56dp"
+        android:ems="10"
+        android:hint="Cosumo (m3)"
+        android:inputType="numberSigned"
+        android:minEms="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,12 +3,15 @@ package com.example.testzebra
 import android.os.Bundle
 import android.os.Looper
 import android.text.Spanned
+import android.util.Log
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.HtmlCompat
 import com.zebra.sdk.comm.BluetoothConnection
 import com.zebra.sdk.comm.Connection
+import org.w3c.dom.Text
 import java.io.OutputStream
 
 
@@ -45,11 +48,17 @@ class MainActivity : AppCompatActivity() {
 
 
         findViewById<Button>(R.id.btnImprimirz902).setOnClickListener {
+            val consumo = findViewById<EditText>(R.id.txtConsumo)
+            data["@consumo_actual"] = consumo.text.toString()
+
             val mac = "CC:78:AB:A0:49:BA"
             Impresion.imprimir(mac, data)
         }
 
         findViewById<Button>(R.id.btnImprimirz900).setOnClickListener {
+            val consumo = findViewById<EditText>(R.id.txtConsumo)
+            data["@consumo_actual"] = consumo.text.toString()
+
             val mac = "B0:91:22:7D:78:7E"
             Impresion.imprimir(mac, data)
         }
