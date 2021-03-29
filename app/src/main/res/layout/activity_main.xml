@@ -12,11 +12,11 @@
         android:layout_height="wrap_content"
         android:text="Hello World!"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.468"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgLogo"
-        app:layout_constraintVertical_bias="0.067" />
+        app:layout_constraintVertical_bias="0.046" />
 
     <Button
         android:id="@+id/btnImprimirz902"
@@ -42,9 +42,9 @@
         android:id="@+id/imgLogo"
         android:layout_width="82dp"
         android:layout_height="80dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="192dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.477"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnImprimirz900"
         app:srcCompat="@drawable/yakusela" />
@@ -61,5 +61,28 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnInsertar"
+        android:layout_width="144dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="32dp"
+        android:onClick="store"
+        android:text="Insetar SQL"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnImprimirz900" />
+
+    <Button
+        android:id="@+id/btnEliminar"
+        android:layout_width="144dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="28dp"
+        android:onClick="delete"
+        android:text="Eliminar Datos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnInsertar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

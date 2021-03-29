@@ -1,4 +1,4 @@
-package com.example.testzebra
+package com.example.testzebra.impresion
 
 import android.os.Looper
 import com.zebra.sdk.comm.BluetoothConnection
@@ -20,7 +20,8 @@ class Impresion {
                     connection.open()
 
                     // This example prints "This is a ZPL test." near the top of the label
-                    val zplData = AvisoCobro.getData(data)
+                    val zplData =
+                        AvisoCobro.getData(data)
 
                     // Send the data to printer as a byte array.
                     connection.write(zplData.toByteArray())

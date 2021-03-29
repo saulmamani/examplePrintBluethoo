@@ -1,29 +1,25 @@
 package com.example.testzebra
 
 import android.os.Bundle
-import android.os.Looper
 import android.text.Spanned
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.HtmlCompat
-import com.zebra.sdk.comm.BluetoothConnection
-import com.zebra.sdk.comm.Connection
-import org.w3c.dom.Text
-import java.io.OutputStream
-
+import com.example.testzebra.database.ObservacioService
+import com.example.testzebra.impresion.Impresion
+import com.example.testzebra.models.local.Observacion
 
 private const val TAG = "Zefra"
 
 class MainActivity : AppCompatActivity() {
-    private var outputStream: OutputStream? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
 
         val sourceDetail: String = "<div style='text-align:center'>" +
                 "<h1>FACTURA #277</h1> <br/>" +
@@ -49,7 +45,7 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.btnImprimirz902).setOnClickListener {
             val consumo = findViewById<EditText>(R.id.txtConsumo)
-            data["@consumo_actual"] = consumo.text.toString()
+            data["@consumo_actual"] = consumo.text.toString() + " (m3)"
 
             val mac = "CC:78:AB:A0:49:BA"
             Impresion.imprimir(mac, data)
@@ -57,11 +53,38 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.btnImprimirz900).setOnClickListener {
             val consumo = findViewById<EditText>(R.id.txtConsumo)
-            data["@consumo_actual"] = consumo.text.toString()
+            data["@consumo_actual"] = consumo.text.toString() + " (m3)"
 
             val mac = "B0:91:22:7D:78:7E"
             Impresion.imprimir(mac, data)
         }
+    }
 
+    fun store(v: View) {
+        val conexion = ObservacioService(applicationContext)
+        var codigo = (1..1000).random();
+        val reg = Observacion(
+            codigo,
+            "Prueba $codigo"
+        )
+
+        println(reg);
+        conexion.store(reg)
+        conexion.close()
+
+        val observaciones = conexion.observaciones
+        println("****DATOS**** (${observaciones.count()})")
+        observaciones.forEach {
+            println(it)
+        }
+
+        Toast.makeText(this, "Total registros: ${observaciones.count()}", Toast.LENGTH_LONG).show()
+    }
+
+    fun delete(v: View) {
+        val conexion = ObservacioService(this)
+        println(conexion.show(770))
+
+        Toast.makeText(this, "Todos los datos eliminados!", Toast.LENGTH_LONG).show()
     }
 }
