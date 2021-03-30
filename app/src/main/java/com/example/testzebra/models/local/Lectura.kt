@@ -1,18 +1,18 @@
 package com.example.testzebra.models.local
 
+import java.time.LocalDateTime
 import java.util.*
 
 data class Lectura (
-    val id: Int,
-    val fecha: Date,
-    val consumo: Double,
-    val descripcion: String,
+    val id: Long,
+    val fecha: LocalDateTime,
+    val valor: Double,
+    val observacion_id: Int,
+    val observacion: String,
     val latitud: String,
     val longitud: String,
-    val observacion_id: Int,
-    val carga_id: Int,
-    val codigo_usuario: Int,
-    val es_leido: Int,
+    val codigo_lector: Int,
+    val es_ultimo: Int,
 
-    val carga: Carga
+    val carga_id: Int
 )

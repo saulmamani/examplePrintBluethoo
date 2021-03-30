@@ -14,8 +14,12 @@ class UsuarioService(
         db.execSQL(
             """
             CREATE TABLE $TABLE_NAME(
+                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                 codigo INTEGER NOT NULL,
-                descripcion VARCHAR(200) NOT NULL
+                ping INTEGER NOT NULL,
+                numero_lector INTEGER NOT NULL,
+                nombre_completo VARCHAR(200) NOT NULL
+                rol VARCHAR(50) NOT NULL
             );
             """.trimIndent()
         )

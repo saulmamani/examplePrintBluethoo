@@ -14,6 +14,7 @@ class ObservacioService(
         db.execSQL(
             """
             CREATE TABLE $TABLE_NAME(
+                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                 codigo INTEGER NOT NULL,
                 descripcion VARCHAR(200) NOT NULL
             );
@@ -36,6 +37,7 @@ class ObservacioService(
             while (cursor.moveToNext()) {
                 observaciones.add(
                     Observacion(
+                        cursor.getLong(cursor.getColumnIndex("id")),
                         cursor.getInt(cursor.getColumnIndex("codigo")),
                         cursor.getString(cursor.getColumnIndex("descripcion"))
                     )
@@ -63,6 +65,7 @@ class ObservacioService(
         while (cursor.moveToNext()) {
             observaciones.add(
                 Observacion(
+                    cursor.getLong(cursor.getColumnIndex("id")),
                     cursor.getInt(cursor.getColumnIndex("codigo")),
                     cursor.getString(cursor.getColumnIndex("descripcion"))
                 )
@@ -71,7 +74,7 @@ class ObservacioService(
         cursor.close()
         if (observaciones.count() > 0)
             return observaciones.first()
-        return Observacion(0, "")
+        return Observacion(0, 0, "")
     }
 
     fun deleteAll(): Boolean {

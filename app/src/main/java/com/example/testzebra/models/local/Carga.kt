@@ -5,5 +5,8 @@ data class Carga(
     val api: String,
     val numero_lector: Int,
     val mes: Int,
-    val anio: Int
+    val anio: Int,
+    var impresiones: Int,
+    var recibio_aviso: Int,
+    val es_leido: Int
 )

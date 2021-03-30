@@ -14,8 +14,14 @@ class CargaService(
         db.execSQL(
             """
             CREATE TABLE $TABLE_NAME(
-                codigo INTEGER NOT NULL,
-                descripcion VARCHAR(200) NOT NULL
+                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                api TEXT NOT NULL,
+                numero_lector INTEGER NOT NULL,
+                mes INTEGER NOT NULL,
+                anio INTEGER NOT NULL,
+                impresiones INTEGER NULL,
+                recibio_aviso INTEGER NOT NULL,
+                es_leido INTEGER NOT NULL,
             );
             """.trimIndent()
         )
@@ -40,7 +46,10 @@ class CargaService(
                         cursor.getString(cursor.getColumnIndex("api")),
                         cursor.getInt(cursor.getColumnIndex("numero_lector")),
                         cursor.getInt(cursor.getColumnIndex("mes")),
-                        cursor.getInt(cursor.getColumnIndex("anio"))
+                        cursor.getInt(cursor.getColumnIndex("anio")),
+                        cursor.getInt(cursor.getColumnIndex("impresiones")),
+                        cursor.getInt(cursor.getColumnIndex("recibio_aviso")),
+                        cursor.getInt(cursor.getColumnIndex("es_leido"))
                     )
                 );
             }
@@ -55,6 +64,9 @@ class CargaService(
         values.put("numero_lector", carga.numero_lector)
         values.put("mes", carga.mes)
         values.put("anio", carga.anio)
+        values.put("impresiones", 0)
+        values.put("recibio_aviso", 0)
+        values.put("es_leido", 0)
         val res = db.insert(TABLE_NAME, null, values)
         db.close()
         return (Integer.parseInt("$res") != -1)
